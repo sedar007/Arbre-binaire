@@ -181,13 +181,13 @@ void noeudsProf(Noeud *parent, int prof){ //Affiche les noeuds qui sont a une pr
 }
 
 bool estPlein(Noeud *parent){ // Verifie si l'arbre est plein
-    if (parent != nullptr && parent->gauche != nullptr && parent->droite != nullptr ){
-        if (parent->gauche == nullptr || parent->droite == nullptr) return false;
-        estPlein(parent->gauche);
-        estPlein(parent->droite);
-        return true;
-    }
-    return false;
+    
+  if (parent!=NULL) {
+    if (parent->gauche !=NULL || parent->droite !=NULL)
+      return estPlein(parent->gauche) && estPlein(parent->droite);
+    else return true;
+  }
+  return false;
 }
 
 
